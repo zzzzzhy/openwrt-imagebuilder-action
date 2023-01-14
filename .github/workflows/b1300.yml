@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: b1300
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+ 
+  build:
+  
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      
+      - uses: actions/checkout@v3
+       
+      - uses: zzzzzhy/openwrt-imagebuilder-action@main
+        with:
+          profile: ipq40xx-generic
+          openwrt-version: 21.02.5
+          packages: coreutils-base64 bash oping openssh-sftp-server rtty-openssl nginx nginx-mod-luci hiui-rpc-core hiui-ui-core hiui-app-clients hiui-app-layout hiui-app-login hiui-app-sdwan hiui-app-settings hiui-app-relayd hiui-app-upgrade hiui-app-wireless hiui-app-network 
+          # files: test/files
+          #disabled-services: dhcp
+         # extra-image-name: useless
+          
