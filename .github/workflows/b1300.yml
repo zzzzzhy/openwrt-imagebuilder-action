@@ -20,7 +20,7 @@ jobs:
           arch: ipq40xx-generic
           profile: glinet_gl-b1300
           openwrt-version: 21.02.5
-          packages: -dnsmasq coreutils-base64 bash oping openssh-sftp-server rtty-openssl nginx nginx-mod-luci hiui-rpc-core hiui-ui-core hiui-app-clients hiui-app-layout hiui-app-login hiui-app-sdwan hiui-app-settings hiui-app-relayd hiui-app-upgrade hiui-app-wireless hiui-app-network dnsmasq-full ip-full kmod-wireguard wireguard-tools curl ipset iptables-legacy resolveip
+          packages: -dnsmasq coreutils-base64 bash oping openssh-sftp-server rtty-openssl nginx nginx-mod-luci hiui-rpc-core hiui-ui-core hiui-app-clients hiui-app-layout hiui-app-login hiui-app-sdwan hiui-app-settings hiui-app-relayd hiui-app-upgrade hiui-app-wireless hiui-app-network dnsmasq-full ip-full kmod-wireguard wireguard-tools curl ipset iptables-legacy resolveip unzip luci kmod-fs-ext4 kmod-fs-ntfs kmod-fs-vfat kmod-fs-exfat ntfs-3g kmod-usb-storage kmod-usb-uhci kmod-usb2 kmod-usb-ohci kmod-usb-acm kmod-usb-net-huawei-cdc-ncm comgt chat comgt-directip comgt-ncm kmod-usb-serial kmod-usb-serial-cp210x kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-serial-sierrawireless usb-modeswitch kmod-mppe kmod-usb-net kmod-usb-net-cdc-ether kmod-usb-net-rndis kmod-usb-net-qmi-wwan uqmi kmod-usb-net-ipheth libusbmuxd libimobiledevice usbmuxd luci luci-mod-rpc luci-base 
           # files: test/files
           #disabled-services: dhcp
           # extra-image-name: useless
