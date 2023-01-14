@@ -18,7 +18,7 @@ jobs:
       - uses: zzzzzhy/openwrt-imagebuilder-action@main
         with:
           arch: ipq40xx-generic
-          profile: b1300
+          profile: gl-b1300
           openwrt-version: 21.02.5
           packages: -dnsmasq coreutils-base64 bash oping openssh-sftp-server rtty-openssl nginx nginx-mod-luci hiui-rpc-core hiui-ui-core hiui-app-clients hiui-app-layout hiui-app-login hiui-app-sdwan hiui-app-settings hiui-app-relayd hiui-app-upgrade hiui-app-wireless hiui-app-network dnsmasq-full ip-full kmod-wireguard wireguard-tools curl ipset iptables-legacy resolveip
           # files: test/files
