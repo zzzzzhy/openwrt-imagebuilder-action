@@ -8,16 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
- 
   build:
-  
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      
       - uses: actions/checkout@v3
-       
+
       - uses: zzzzzhy/openwrt-imagebuilder-action@main
         with:
           arch: ipq40xx-generic
@@ -26,5 +23,20 @@ jobs:
           packages: -dnsmasq coreutils-base64 bash oping openssh-sftp-server rtty-openssl nginx nginx-mod-luci hiui-rpc-core hiui-ui-core hiui-app-clients hiui-app-layout hiui-app-login hiui-app-sdwan hiui-app-settings hiui-app-relayd hiui-app-upgrade hiui-app-wireless hiui-app-network dnsmasq-full ip-full kmod-wireguard wireguard-tools curl ipset iptables-legacy resolveip
           # files: test/files
           #disabled-services: dhcp
-         # extra-image-name: useless
-          
+          # extra-image-name: useless
+
+      - name: Organize files
+        id: organize
+        if: true && !failure() && !cancelled()
+        run: |
+          cd ~/firmware
+          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+          cd ~/packages
+          echo "PACKAGES=$PWD" >> $GITHUB_ENV
+          echo "status=success" >> $GITHUB_OUTPUT
+      - name: Upload firmware directory
+        uses: actions/upload-artifact@main
+        if: steps.organize.outputs.status == 'success' && !cancelled() && !failure()
+        with:
+          name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+          path: ${{ env.FIRMWARE }}

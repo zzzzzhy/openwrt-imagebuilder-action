@@ -1,5 +1,12 @@
 #!/bin/bash
-
+function copy_file(){
+	path=$1
+	mkdir ~/firmware
+	mkdir ~/packages
+	cd $path
+	rm -rf packages
+	cp -rf ./* ~/firmware
+}
 if [[ "$DEBUG" == "1" ]]; then
   set
   cat .config
@@ -17,3 +24,5 @@ make image \
   PACKAGES="$PACKAGES" \
   DISABLED_SERVICES="$DISABLED_SERVICES" \
   EXTRA_IMAGE_NAME="$EXTRA_IMAGE_NAME"
+
+copy_file ~/openwrt/bin/targets/*/*
