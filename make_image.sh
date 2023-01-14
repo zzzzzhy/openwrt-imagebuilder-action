@@ -1,11 +1,9 @@
 #!/bin/bash
 function copy_file(){
 	path=$1
-	mkdir ~/firmware
-	mkdir ~/packages
 	cd $path
 	rm -rf packages
-	cp -rf ./* ~/firmware
+	cp -rf ./* /home/build/openwrt/bin
 }
 if [[ "$DEBUG" == "1" ]]; then
   set
