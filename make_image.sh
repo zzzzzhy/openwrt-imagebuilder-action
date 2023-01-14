@@ -1,10 +1,5 @@
 #!/bin/bash
-function copy_file(){
-	path=$1
-	cd $path
-	rm -rf packages
-	cp -rf ./* /home/build/openwrt/bin
-}
+
 if [[ "$DEBUG" == "1" ]]; then
   set
   cat .config
@@ -22,5 +17,3 @@ make image \
   PACKAGES="$PACKAGES" \
   DISABLED_SERVICES="$DISABLED_SERVICES" \
   EXTRA_IMAGE_NAME="$EXTRA_IMAGE_NAME"
-
-copy_file ~/openwrt/bin/targets/*/*
